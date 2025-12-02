@@ -1,13 +1,7 @@
-import random as rn
 import funny as fn
 import weather as wt
 import sport as sp
 import random_news as rw
-
-from rich.console import Console
-
-console = Console()
-
 
 while True:
     print("\n\nWhat type of news do you want?")
