@@ -4,6 +4,24 @@ import sport as sp
 import random_news as rw
 import history as hs
 
+def headline_generater(module, title, category_name):
+    news = "yes"
+    headline = ""
+
+    while news == "yes":
+        headline = module.generate_headline(
+            module.name_list,
+            module.work_list,
+            module.object_list,
+            title
+        )
+        print(headline)
+        news = input("\nWant more headlines (Yes/No): ").lower().strip()
+
+    save = input("You want to save this headline? (Yes/No): ").lower().strip()
+    if save == "yes":
+        hs.save_headline(category_name, headline)
+
 while True:
     print("\n\nWhat type of news do you want?")
     print("1. Funny News")
@@ -12,65 +30,22 @@ while True:
     print("4. Random News")
     option = input("Enter your choice: ").strip()
     
+
     if option == "1":
-        news = "yes"
-        while(news=="yes"):
-            headline = fn.generate_headline(fn.funny_name, fn.funny_working, fn.funny_objects, "Funny Headlines😂",)
-            print(headline)
-            news = input("\nWant more headlines (Yes/No): ").lower().strip() 
+        headline_generater(fn, "Funny Headlines 😂", "Funny")
 
-            if news == "no":
-                break
-        
-        save = input("You want to save this headline? (Yes/No): ").lower().strip()
-        if save == "yes":
-            hs.save_headline("Funny", headline)
-
-        print("Good day!")
     elif option == "2":
-        news = "yes"
-        while(news=="yes"):
-            headline = (sp.generate_headline(sp.sport_name, sp.sport_working, sp.sport_objects, "Sports Headlines🔥"))
-            print(headline)
-            news = input("\nWant more headlines (Yes/No): ").lower().strip() 
-           
-            if news == "no":
-                break
+        headline_generater(sp, "Sports Headlines 🔥", "Sport")
 
-        save = input("You want to save this headline? (Yes/No): ").lower().strip()
-        if save == "yes":
-            hs.save_headline("Sport", headline)
-    
     elif option == "3":
-        news = "yes"
-        while(news=="yes"):
-            headline = (wt.generate_headline(wt.weather_name, wt.weather_working, wt.weather_objects, "Weather Headlines🌦️"))
-            print(headline)
-            news = input("\nWant more headlines (Yes/No): ").lower().strip() 
-            
-            if news == "no":
-                break
-
-        save = input("You want to save this headline? (Yes/No): ").lower().strip()
-        if save == "yes":
-            hs.save_headline("Weather", headline)
+        headline_generater(wt, "Weather Headlines 🌦️", "Weather")
 
     elif option == "4":
-        news = "yes"
-        while(news=="yes"):
-            headline = (rw.generate_headline(sp.sport_name, wt.weather_working, fn.funny_objects, "Random Headlines🤞"))
-            print(headline)
-            news = input("\nWant more headlines (Yes/No): ").lower().strip() 
-            
-            if news == "no":
-                break
-        
-        save = input("You want to save this headline? (Yes/No): ").lower().strip()
-        if save == "yes":
-            hs.save_headline("Random", headline)
+        headline_generater(rw, "Random Headlines 🤞", "Random")
 
     else:
-        print("\n\nPlease enter valid choice. Try again...!")
+        print("\nPlease enter valid choice. Try again...!")
+
     
 
 
