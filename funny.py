@@ -1,30 +1,83 @@
 import random as rn
 
-# for Funny 
-funny_name = [
-    "Atul tries to",
-    "Nilesh goes to",
-    "Darhak chases a"
-]
+class HeadlineGenerator:
+    def generate(self, title):
+        name = rn.choice(self.name_list)
+        work = rn.choice(self.work_list)
+        obj = rn.choice(self.object_list)
 
-funny_working = [
-    "kick a football…",
-    "buy milk and returns",
-    "butterfly but"
-]
+        return f"{title}\n {name} {work} {obj}"
 
-funny_objects = [
-    "but kicks the air instead! 😂",
-    "with a watermelon. 🤦‍♂️",
-    "falls into a bush. 🌿😂"
-]
 
-def generate_headline(name_list, work_list, object_list, title):
-    # Yaha random choice hoga
-    name = rn.choice(name_list)
-    work = rn.choice(work_list)
-    obj = rn.choice(object_list)
+# for Funny
+class FunnyHeadline(HeadlineGenerator): 
+    def __init__(self):
+        self.name_list = [
+            "Atul tries to",
+            "Nilesh goes to",
+            "Darhak chases a"
+        ]
 
-    # Final headline
-    headline = f"{title}\n {name} {work} {obj}"
-    return headline
+        self.work_list = [
+            "kick a football…",
+            "buy milk and returns",
+            "butterfly but"
+        ]
+
+        self.object_list = [
+            "but kicks the air instead! 😂",
+            "with a watermelon. 🤦‍♂️",
+            "falls into a bush. 🌿😂"
+        ]
+
+# for Sport
+class SportHeadline(HeadlineGenerator):
+    def __init__(self):
+        self.name_list = [
+            "Atul smashes",
+            "Nilesh wins",
+            "Darhak trained",
+            "Nagpur City",
+            "Massive crowd"
+        ]
+        self.work_list = [
+            "a powerful football shot",
+            "the village cricket match",
+            "for 2 hours nonstop",
+            "FC signs a young rising player",
+            "cheers as Atul scores"
+        ]
+        self.object_list = [
+            "in Nagpur Stadium!",
+            "with a last-ball six!",
+            "in the evening heat.",
+            "from the local league.",
+            "back-to-back goals!"
+        ]
+
+# for Weather
+class WeatherHeadline(HeadlineGenerator):
+    def __init__(self):
+        self.name_list = [
+        "Nagpur",
+        "Strong winds",
+        "Sunny morning",
+        "Temperature drops",
+        "Extreme heat wave"
+        ]
+
+        self.work_list = [
+            "to experience heavy rainfall",
+            "expected in the evening;",
+            "but chances of thunderstorms",
+            "suddenly as winter",
+            "continues;"
+        ]
+
+        self.object_list = [
+            "tonight—alert issued.",
+            "people advised to stay safe.",
+            "after 4 PM.",
+            "breeze hits the city.",
+            "stay hydrated, says officials."
+        ]
