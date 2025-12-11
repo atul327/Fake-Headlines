@@ -1,10 +1,11 @@
 from funny import FunnyHeadline, SportHeadline, WeatherHeadline
 
-import history as hs
+from history import History
 
 fn = FunnyHeadline()
 sp = SportHeadline()
 wt = WeatherHeadline()
+hs = History()
 
 class FakeHead:
     def headline_generater(self, module, title, category_name):
@@ -19,6 +20,10 @@ class FakeHead:
         save = input("You want to save this headline? (Yes/No): ").lower().strip()
         if save == "yes":
             hs.save_headline(category_name, headline)
+
+        saved_head = input("Want to read saved headline? (yes/no):").lower().strip()
+        if saved_head == "yes" or saved_head == "y":
+            print(hs.get_data(category_name))
 
     def showmenu(self):
         while True:

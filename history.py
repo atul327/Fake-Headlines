@@ -1,20 +1,22 @@
 import json
 
+class History:
+    def save_headline(self, category, data):
+        __file_path = f"{category}.json"
+        try:
+            with open(__file_path, "w")as f:
+                json.dump(data, f, indent=4)
+            print(f"Data saved to {__file_path}")
+        except FileNotFoundError:
+            print("File Not Found!")
 
-def save_headline(category, data):
-    file_path = f"{category}.json"
-    try:
-        with open(file_path, "w")as f:
-            json.dump(data, f, indent=4)
-        print(f"Data saved to {file_path}")
-    except FileNotFoundError:
-        print("File Not Found!")
+    def get_data(self, category):
+        __file_path = f"{category}.json"
+        try:
+            with open(__file_path, "r")as f:
+                data = json.load(f)
+            return "".join(data) if data else "No saved headlines."
+        except FileNotFoundError:
+            print("File Not Found!")
 
-def load_data(category):
-    file_path = f"{category}.json"
-    try:
-        with open(file_path, "r")as f:
-           data = f.load(f)
-        return data
-    except FileNotFoundError:
-        print("File Not Found!")
+
