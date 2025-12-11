@@ -17,6 +17,6 @@ class History:
                 data = json.load(f)
             return "".join(data) if data else "No saved headlines."
         except FileNotFoundError:
-            print("File Not Found!")
+            print("File Not Found.!")
 
 
