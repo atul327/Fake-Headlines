@@ -1,10 +1,13 @@
 import random as rn
 
 class HeadlineGenerator:
+    def __pick(self, data):
+        return rn.choice(data)
+
     def generate(self, title):
-        name = rn.choice(self._name_list)
-        work = rn.choice(self._work_list)
-        obj = rn.choice(self._object_list)
+        name = self.__pick(self._name_list)
+        work = self.__pick(self._work_list)
+        obj = self.__pick(self._object_list)
 
         return f"{title}\n {name} {work} {obj}"
 
