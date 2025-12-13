@@ -1,4 +1,5 @@
 import random as rn
+from headline_base import HeadLineBase
 
 class HeadlineGenerator:
     def __pick(self, data):
@@ -13,7 +14,7 @@ class HeadlineGenerator:
 
 
 # for Funny
-class FunnyHeadline(HeadlineGenerator): 
+class FunnyHeadline(HeadlineGenerator, HeadLineBase): 
     def __init__(self):
         self._name_list = [
             "Atul tries to",
@@ -34,7 +35,7 @@ class FunnyHeadline(HeadlineGenerator):
         ]
 
 # for Sport
-class SportHeadline(HeadlineGenerator):
+class SportHeadline(HeadlineGenerator, HeadLineBase):
     def __init__(self):
         self._name_list = [
             "Atul smashes",
@@ -59,7 +60,7 @@ class SportHeadline(HeadlineGenerator):
         ]
 
 # for Weather
-class WeatherHeadline(HeadlineGenerator):
+class WeatherHeadline(HeadlineGenerator, HeadLineBase):
     def __init__(self):
         self._name_list = [
         "Nagpur",
