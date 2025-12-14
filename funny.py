@@ -3,7 +3,10 @@ from headline_base import HeadLineBase
 
 class HeadlineGenerator:
     def __pick(self, data):
-        return rn.choice(data)
+        try:
+            return rn.choice(data)
+        except IndexError:
+            print("List not found!")
 
     def generate(self, title):
         name = self.__pick(self._name_list)
@@ -84,4 +87,19 @@ class WeatherHeadline(HeadlineGenerator, HeadLineBase):
             "after 4 PM.",
             "breeze hits the city.",
             "stay hydrated, says officials."
+        ]
+
+# just for testing try Except block
+class RandomHeadline(HeadlineGenerator, HeadLineBase):
+    def __init__(self):
+        self._name_list = [
+
+        ]
+
+        self._work_list = [
+
+        ]
+
+        self._object_list = [
+
         ]

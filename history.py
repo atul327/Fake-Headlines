@@ -18,5 +18,6 @@ class History:
             return "".join(data) if data else "No saved headlines."
         except FileNotFoundError:
             print("File Not Found.!")
+            print("First save the headline")
 
 

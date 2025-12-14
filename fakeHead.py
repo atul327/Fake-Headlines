@@ -1,10 +1,11 @@
-from funny import FunnyHeadline, SportHeadline, WeatherHeadline
+from funny import FunnyHeadline, SportHeadline, WeatherHeadline, RandomHeadline
 
 from history import History
 
 fn = FunnyHeadline()
 sp = SportHeadline()
 wt = WeatherHeadline()
+dm = RandomHeadline()
 hs = History()
 
 class FakeHead:
@@ -18,7 +19,7 @@ class FakeHead:
             news = input("\nWant more headlines (Yes/No): ").lower().strip()
 
         save = input("You want to save this headline? (Yes/No): ").lower().strip()
-        if save == "yes":
+        if save == "yes" or save == "y":
             hs.save_headline(category_name, headline)
 
         saved_head = input("Want to read saved headline? (yes/no):").lower().strip()
@@ -26,22 +27,30 @@ class FakeHead:
             print(hs.get_data(category_name))
 
     def showmenu(self):
+        option = 0
         while True:
             print("\n\nWhat type of news do you want?")
             print("1. Funny News")
             print("2. Sports News")
             print("3. Weather News")
-            option = input("Enter your choice: ").strip()
+            print("4. Random News")
+            try:
+                option = int(input("Enter your choice: "))
+            except ValueError:
+                print("\nChoose option in number only(1 to 4)")
             
 
-            if option == "1":
+            if option == 1:
                 self.headline_generater(fn, "Funny Headlines 😂", "Funny")
 
-            elif option == "2":
+            elif option == 2:
                 self.headline_generater(sp, "Sports Headlines 🔥", "Sport")
 
-            elif option == "3":
+            elif option == 3:
                 self.headline_generater(wt, "Weather Headlines 🌦️", "Weather")
+            
+            elif option == 4:
+                self.headline_generater(dm, "Random Headline", "Random")
 
             else:
                 print("\nPlease enter valid choice. Try again...!")
