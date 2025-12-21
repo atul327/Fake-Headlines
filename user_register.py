@@ -15,7 +15,21 @@ class login_Registration:
         except ValueError:
             print("Invalid date format! Use DD-MM-YYYY")
 
-   
+    def login(self):
+        print("----WELCOME Again----")
+        entered_name = input("Enter yoy name: ")
+
+        try:
+            date_of_birth = input("Enter you Date of Birth (DD-MM-YYYY): ")
+            DOB = datetime.strptime(date_of_birth, "%d-%m-%Y").date()
+        except ValueError:
+            print("Invalid date format! Use DD-MM-YYYY")
+        
+        if entered_name == self.name and DOB == self.dob_input:
+            print("Login Successfull!")
+        else:
+            print("Invalid Credential")
 
 l = login_Registration()
 l.registratin()
+l.login()
