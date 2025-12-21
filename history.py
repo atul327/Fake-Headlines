@@ -4,8 +4,11 @@ class History:
     def save_headline(self, category, data):
         __file_path = f"{category}.json"
         try:
+            # coverting python daya to json string
+            head_str = json.dumps(data, indent=4)
+
             with open(__file_path, "w")as f:
-                json.dump(data, f, indent=4)
+                f.write(head_str)
             print(f"Data saved to {__file_path}")
         except FileNotFoundError:
             print("File Not Found!")
