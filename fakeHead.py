@@ -58,6 +58,18 @@ class FakeHead:
             else:
                 print("\nPlease enter valid choice. Try again...!")
 
+    def user(self):
+        print("You don't have an account. Please register first. (Press 1)")
+        print("Already registered? Please log in. (Press 2)")
+        print("If you want to skip registration (Press 3)")
+        user_input = int(input("What your choice: "))
+        if user_input == 1:
+            lr.registratin()
+        elif user_input == 2:
+            lr.login()
+        elif user_input == 3:
+            pass
+
 fk = FakeHead()
 
 fk.showmenu()
