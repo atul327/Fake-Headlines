@@ -1,4 +1,5 @@
 from funny import FunnyHeadline, SportHeadline, WeatherHeadline, RandomHeadline
+from user_register import login_Registration
 
 from history import History
 
@@ -7,6 +8,8 @@ sp = SportHeadline()
 wt = WeatherHeadline()
 dm = RandomHeadline()
 hs = History()
+
+lr = login_Registration()
 
 class FakeHead:
     def headline_generater(self, module, title, category_name):
