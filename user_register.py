@@ -1,8 +1,11 @@
 from datetime import datetime
 
+from history import Userdata
+
+ud = Userdata()
 
 class login_Registration:
-    def registratin(self):
+    def registration(self):
         print("-----WELCOME to Headline generator App!-----")
         while True:
             self.name = input("Enter your name: ")
@@ -14,6 +17,9 @@ class login_Registration:
             try:
                 date_of_birth = input("Enter you Date of Birth (DD-MM-YYYY): ")
                 self.dob_input = datetime.strptime(date_of_birth, "%d-%m-%Y").date()
+
+                ud.save_user_details(self.name, self.age, date_of_birth)
+
                 print('Registration successfull...!')
                 return True
             

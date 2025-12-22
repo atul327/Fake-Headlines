@@ -24,3 +24,20 @@ class History:
             print("First save the headline")
 
 
+class Userdata:
+    def save_user_details(self, name, age, dob):
+        __userfile = "userData.json"
+
+        try:
+            data = {
+                "name" : name,
+                "age" : age,
+                "dob" : str(dob)
+            }
+
+            with open(__userfile, "w") as f:
+                json.dump(data, f, indent=4)
+
+        except FileNotFoundError:
+            pass
+

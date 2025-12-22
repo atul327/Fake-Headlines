@@ -60,12 +60,12 @@ class FakeHead:
                 print("\nPlease enter valid choice. Try again...!")
 
     def user(self):
-        print("You don't have an account. Please register first. (Press 1)")
-        print("Already registered? Please log in. (Press 2)")
-        print("If you want to skip registration (Press 3)")
+        print("1. You don't have an account. Please register first. (Press 1)")
+        print("2. Already registered? Please log in. (Press 2)")
+        print("3. If you want to skip registration (Press 3)")
         user_input = int(input("What your choice: "))
         if user_input == 1:
-            result = lr.registratin()
+            result = lr.registration()
             if result == True:
                 login_result = lr.login()
                 if login_result == True:
