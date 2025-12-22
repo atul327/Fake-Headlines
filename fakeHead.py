@@ -1,4 +1,5 @@
 from funny import FunnyHeadline, SportHeadline, WeatherHeadline, RandomHeadline
+
 from user_register import login_Registration
 
 from history import History
@@ -64,14 +65,22 @@ class FakeHead:
         print("If you want to skip registration (Press 3)")
         user_input = int(input("What your choice: "))
         if user_input == 1:
-            lr.registratin()
+            result = lr.registratin()
+            if result == True:
+                login_result = lr.login()
+                if login_result == True:
+                    self.showmenu()
+
         elif user_input == 2:
-            lr.login()
+            log_result = lr.login()
+            if log_result == True:
+                self.showmenu()
+
         elif user_input == 3:
-            pass
+            self.showmenu()
 
 fk = FakeHead()
 
-fk.showmenu()
+fk.user()
 
 
