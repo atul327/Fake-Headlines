@@ -19,6 +19,7 @@ class History:
             with open(__file_path, "r")as f:
                 data = json.load(f)
             return "".join(data) if data else "No saved headlines."
+        
         except FileNotFoundError:
             print("File Not Found.!")
             print("First save the headline")
@@ -41,3 +42,18 @@ class Userdata:
         except FileNotFoundError:
             pass
 
+# getting user details for the login credetials 
+    def get_user_details(self):
+        __userfile = "userData.json"
+        try:
+            with open(__userfile, "r") as f:
+                data = json.load(f)
+                stored_name = data.get("name")
+                stored_dob  = data.get("dob")
+                
+                # returning data
+                return stored_name, stored_dob 
+        except FileNotFoundError:
+            pass
+
+        
