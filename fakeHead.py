@@ -67,7 +67,7 @@ class FakeHead:
         if user_input == 1:
             result = lr.registration()
             if result == True:
-                login_result = lr.login()
+                login_result = lr.log2in()
                 if login_result == True:
                     self.showmenu()
 

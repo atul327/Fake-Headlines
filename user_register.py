@@ -34,11 +34,16 @@ class login_Registration:
 
             try:
                 date_of_birth = input("Enter you Date of Birth (DD-MM-YYYY): ")
-                DOB = datetime.strptime(date_of_birth, "%d-%m-%Y").date()
+                DOB = datetime.strptime(date_of_birth, "%d-%m-%Y")
             except ValueError:
                 print("Invalid date format! Use DD-MM-YYYY")
             
-            if entered_name == self.name and DOB == self.dob_input:
+            u_name, u_dob = ud.get_user_details()
+            
+            # converting date int an String fromat
+            formatted_dob = datetime.strptime(u_dob, "%d-%m-%Y")
+
+            if entered_name == u_name and DOB == formatted_dob:
                 print("Login Successfull!")
                 return True
             
