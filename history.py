@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 class History:
     def save_headline(self, category, data):
@@ -56,4 +57,17 @@ class Userdata:
         except FileNotFoundError:
             pass
 
+    # getting the age for verification 
+    def get_age(self):
+        __userfile = "userData.json"
+
+        try:
+            with open(__userfile, "r") as f:
+                data = json.load(f)
+                age = data.get("age")
+
+                return age
+
+        except FileNotFoundError:
+            pass
         
