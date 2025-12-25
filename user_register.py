@@ -6,7 +6,7 @@ ud = Userdata()
 
 class login_Registration:
     def registration(self):
-        print("-----WELCOME to Headline generator App!-----")
+        print("\n\n-----WELCOME to Headline generator App!-----")
         
         self.name = input("Enter your name: ")
 
@@ -30,17 +30,17 @@ class login_Registration:
                 calculate_age = today.year - formated_age.year
 
                 if return_age == calculate_age:
-                    print('Registration successfull...!')
+                    print('\nRegistration successfull...!\n')
                     return True
                 else:
-                    print("Registration Failed! Enter correct Age With your birth of year")
+                    print("\nRegistration Failed! Enter correct Age With your birth of year\n")
             
             except ValueError:
                 print("Invalid date format! Use DD-MM-YYYY")
 
 
     def login(self):
-        print("----WELCOME Again----")
+        print("\n\n----WELCOME Again----")
         while True:
             entered_name = input("Enter your name: ")
 
@@ -51,7 +51,7 @@ class login_Registration:
                 DOB = datetime.strptime(date_of_birth, "%d-%m-%Y")
 
             except ValueError:
-                print("Invalid date format! Use DD-MM-YYYY")
+                print("Invalid date format! Use DD-MM-YYYY\n")
             
             u_name, u_dob = ud.get_user_details()
             

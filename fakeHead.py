@@ -65,7 +65,7 @@ class FakeHead:
             print("2. Already registered? Please log in. (Press 2)")
             print("3. If you want to skip registration (Press 3)")
             try:
-                user_input = int(input("What your choice: "))
+                user_input = int(input("----What your choice: "))
                 if user_input == 1:
                     result = lr.registration()
                     if result == True:
@@ -81,7 +81,7 @@ class FakeHead:
                 elif user_input == 3:
                     self.showmenu()
             except ValueError:
-                print("Choose option between (1 to 3)")
+                print("\nChoose option between (1 to 3)\n")
 
 fk = FakeHead()
 
