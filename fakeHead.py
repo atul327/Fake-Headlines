@@ -60,24 +60,28 @@ class FakeHead:
                 print("\nPlease enter valid choice. Try again...!")
 
     def user(self):
-        print("1. You don't have an account. Please register first. (Press 1)")
-        print("2. Already registered? Please log in. (Press 2)")
-        print("3. If you want to skip registration (Press 3)")
-        user_input = int(input("What your choice: "))
-        if user_input == 1:
-            result = lr.registration()
-            if result == True:
-                login_result = lr.login()
-                if login_result == True:
+        while True:
+            print("1. You don't have an account. Please register first. (Press 1)")
+            print("2. Already registered? Please log in. (Press 2)")
+            print("3. If you want to skip registration (Press 3)")
+            try:
+                user_input = int(input("What your choice: "))
+                if user_input == 1:
+                    result = lr.registration()
+                    if result == True:
+                        login_result = lr.login()
+                        if login_result == True:
+                            self.showmenu()
+
+                elif user_input == 2:
+                    log_result = lr.login()
+                    if log_result == True:
+                        self.showmenu()
+
+                elif user_input == 3:
                     self.showmenu()
-
-        elif user_input == 2:
-            log_result = lr.login()
-            if log_result == True:
-                self.showmenu()
-
-        elif user_input == 3:
-            self.showmenu()
+            except ValueError:
+                print("Choose option between (1 to 3)")
 
 fk = FakeHead()
 
