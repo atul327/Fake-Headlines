@@ -1,3 +1,4 @@
+import json
 from history import History
 
 hi = History()
@@ -6,8 +7,19 @@ class SmartHead():
     def contain_word(self):
         word = input("Enter word which you want in headline: ").lower()
 
-        categories = ["Funny", "Sport", "Weather", "Random"]
-        
+        categories = ["Funny", "Sport", "Weather"]
+        for categorie in categories:
+            try:
+                with open(f"{categorie}.json", "r") as f:
+                    headlines = json.load(f)
+
+                    # for headline in headlines:
+                    if word in headlines.lower():
+                        print(f"{categorie} : \n {headlines}")
+                    else:
+                        print(f"No {categorie} headline found from your search")
+            except FileNotFoundError:
+                print("File Not Found!")
 
     def smart_head_generate(self):
         more_filter = "yes"
