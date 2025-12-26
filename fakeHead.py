@@ -1,7 +1,7 @@
 from funny import FunnyHeadline, SportHeadline, WeatherHeadline, RandomHeadline
 
 from user_register import login_Registration
-
+from smarthead import SmartHead
 from history import History
 
 fn = FunnyHeadline()
@@ -9,6 +9,7 @@ sp = SportHeadline()
 wt = WeatherHeadline()
 dm = RandomHeadline()
 hs = History()
+sm = SmartHead()
 
 lr = login_Registration()
 
@@ -38,6 +39,7 @@ class FakeHead:
             print("2. Sports News")
             print("3. Weather News")
             print("4. Random News")
+            print('5. Smart Headline')
             try:
                 option = int(input("Enter your choice: "))
             except ValueError:
@@ -56,6 +58,9 @@ class FakeHead:
             elif option == 4:
                 self.headline_generater(dm, "Random Headline", "Random")
 
+            elif option == 5:
+                sm.smart_head_generate()
+            
             else:
                 print("\nPlease enter valid choice. Try again...!")
 
