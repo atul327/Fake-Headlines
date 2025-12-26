@@ -4,26 +4,32 @@ from history import History
 hi = History()
 
 class SmartHead():
-    def filehandle(self):
+    """def filehandle(self):
         categories = ["Funny", "Sport", "Weather"]
         for categorie in categories:
             try:
                 with open(f"{categorie}.json", "r") as f:
                     return json.load(f), categorie
             except FileNotFoundError:
-                print("File Not Found!")
-
+                print("File Not Found!")"""
+    
+    
     def contain_word(self):
         word = input("Enter word which you want in headline: ").lower()
-        
-        headlines, categorie = self.filehandle()
-        print(headlines)
 
-        # for headline in headlines:
-        if word in headlines.lower():
-            print(f"{categorie} : \n {headlines}")
-        else:
-            print(f"No {categorie} headline found from your search")
+        categories = ["Funny", "Sport", "Weather"]
+        for categorie in categories:
+            try:
+                with open(f"{categorie}.json", "r") as f:
+                    headlines = json.load(f)
+
+                    # for headline in headlines:
+                    if word in headlines.lower():
+                        print(f"{categorie} : \n {headlines}")
+                    else:
+                        print(f"No {categorie} headline found from your search")
+            except FileNotFoundError:
+                print("File Not Found!")
 
     
 
