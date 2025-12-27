@@ -31,7 +31,21 @@ class SmartHead():
             except FileNotFoundError:
                 print("File Not Found!")
 
-    
+    def start_word(self):
+        word = input("Enter Starting word which you want in headline: ").lower()
+
+        categories = ["Funny", "Sport", "Weather"]
+        for categorie in categories:
+            try:
+                with open(f"{categorie}.json", "r") as f:
+                    headlines = json.load(f)
+                    headline = headlines.lower()
+                    words = headline.split()
+                    # print(len(words))
+
+
+            except FileNotFoundError:
+                print("File not found...!")
 
     def smart_head_generate(self):
         more_filter = "yes"
