@@ -95,5 +95,8 @@ class SmartHead():
             except ValueError:
                 print("Enter choice in digit only..\n")
 
-            more_filter = input("Do you want to apply another filter? (yes/no):").lower()
+        more_filter = input("Do you want to apply another filter? (yes/no):").lower()
 
+# if __name__ == "__main__":
+#     app = SmartHead()
+#     app.smart_head_generate()
