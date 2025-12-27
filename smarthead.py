@@ -22,12 +22,26 @@ class SmartHead():
             try:
                 with open(f"{categorie}.json", "r") as f:
                     headlines = json.load(f)
+                    """
+                    # BY INDEXING CAN BE SEARCH THE HEADLINE 
+                    headline = headlines.lower()
+                    words = headline.split()
+                    # print(words)
 
-                    # for headline in headlines:
+                    for single_word in words:
+                        if word == single_word:
+                            word_index = words.index(word)
+                            # print(word_index)
+                            if words[word_index] == word:
+                                print(headlines)
+                            else:
+                                print(f"So Sorry!!!\n I cannot find the headline from your search or Check you spelling & try again. \n Thank You!")
+                    """
+
                     if word in headlines.lower():
                         print(f"{categorie} : \n {headlines}")
                     else:
-                        print(f"No {categorie} headline found from your search")
+                        print(f"So Sorry!!!\nNo {categorie} headline found from your search")
             except FileNotFoundError:
                 print("File Not Found!")
 
@@ -41,8 +55,17 @@ class SmartHead():
                     headlines = json.load(f)
                     headline = headlines.lower()
                     words = headline.split()
-                    # print(len(words))
+                    # print(words)
 
+                    for single_word in words:
+                        if word == single_word:
+                            
+                            # finding the index and compare the Input word with first word of headline
+                            word_index = words.index(word)
+                            if words[3] == word:
+                                print(headlines)
+                            else:
+                                print(f"So Sorry!!!\n I cannot find the headline from your search or Check you spelling & try again. \n Thank You!")
 
             except FileNotFoundError:
                 print("File not found...!")
@@ -55,19 +78,22 @@ class SmartHead():
             print("2. Starts with word")
             print("3. Ends with emoji")
             print("4. Length greater than N\n")
-            choice =  int(input("Select your filter: "))
+            try:
+                choice =  int(input("Select your filter: "))
 
-            match choice:
-                case 1:
-                    self.contain_word()
-                case 2:
-                    self.start_word()
-                case 3:
-                    pass
-                case 4:
-                    pass
-                case _:
-                    print("select valid filter (1 to 4)")
+                match choice:
+                    case 1:
+                        self.contain_word()
+                    case 2:
+                        self.start_word()
+                    case 3:
+                        pass
+                    case 4:
+                        pass
+                    case _:
+                        print("select valid filter (1 to 4)")
+            except ValueError:
+                print("Enter choice in digit only..\n")
 
             more_filter = input("Do you want to apply another filter? (yes/no):").lower()
 
