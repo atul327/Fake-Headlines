@@ -76,18 +76,20 @@ class SmartHead():
 
             categories = ["Funny", "Sport", "Weather"]
             for categorie in categories:
-                with open(f"{categorie}.json", "r") as f:
-                    headlines = json.load(f)
-                    word = headlines.split()
-                    
-                    for emojis in word:
-                        if emojis == emoji:
-                            data = len(word)-1
-                            if word[data] == emoji:
-                                print(headlines)
-                            else:
-                                print(f"So Sorry!!!\n I cannot find the headline from your search, try again. \n Thank You!")
+                try:
+                    with open(f"{categorie}.json", "r") as f:
+                        headlines = json.load(f)
+                        word = headlines.split()
 
+                        for emojis in word:
+                            if emojis == emoji:
+                                data = len(word)-1
+                                if word[data] == emoji:
+                                    print(headlines)
+                                else:
+                                    print(f"So Sorry!!!\n I cannot find the headline from your search, try again. \n Thank You!")
+                except FileNotFoundError:
+                    print(" Sorry!!\n File Not Found!")
 
 
     def smart_head_generate(self):
