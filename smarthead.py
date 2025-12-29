@@ -79,17 +79,17 @@ class SmartHead():
                 try:
                     with open(f"{categorie}.json", "r") as f:
                         headlines = json.load(f)
-                        word = headlines.split()
+                        # word = headlines.split()
 
-                        for emojis in word:
-                            if emojis == emoji:
-                                data = len(word)-1
-                                if word[data] == emoji:
-                                    print(headlines)
-                                else:
-                                    print(f"So Sorry!!!\n I cannot find the headline from your search, try again. \n Thank You!")
+                        for headline in headlines:
+                            if headline.strip().endswith(emoji):
+                                print(headlines)
+                                return
+                            
                 except FileNotFoundError:
                     print(" Sorry!!\n File Not Found!")
+
+            print(f"So Sorry!!!\n I cannot find the headline from your search, try again. \n Thank You!")
 
 
     def smart_head_generate(self):
@@ -117,6 +117,6 @@ class SmartHead():
 
         more_filter = input("Do you want to apply another filter? (yes/no):").lower()
 
-if __name__ == "__main__":
-    app = SmartHead()
-    app.smart_head_generate()
+# if __name__ == "__main__":
+#     app = SmartHead()
+#     app.smart_head_generate()
