@@ -70,6 +70,26 @@ class SmartHead():
             except FileNotFoundError:
                 print("File not found...!")
 
+        
+    def end_with_emoji(self):
+            emoji = input("Enter emoji which you want at the last: ")
+
+            categories = ["Funny", "Sport", "Weather"]
+            for categorie in categories:
+                with open(f"{categorie}.json", "r") as f:
+                    headlines = json.load(f)
+                    word = headlines.split()
+                    
+                    for emojis in word:
+                        if emojis == emoji:
+                            data = len(word)-1
+                            if word[data] == emoji:
+                                print(headlines)
+                            else:
+                                print(f"So Sorry!!!\n I cannot find the headline from your search, try again. \n Thank You!")
+
+
+
     def smart_head_generate(self):
         more_filter = "yes"
         while more_filter:
@@ -87,16 +107,14 @@ class SmartHead():
                     case 2:
                         self.start_word()
                     case 3:
-                        pass
+                        self.end_with_emoji()
                     case 4:
-                        pass
-                    case _:
                         print("select valid filter (1 to 4)")
             except ValueError:
                 print("Enter choice in digit only..\n")
 
         more_filter = input("Do you want to apply another filter? (yes/no):").lower()
 
-# if __name__ == "__main__":
-#     app = SmartHead()
-#     app.smart_head_generate()
+if __name__ == "__main__":
+    app = SmartHead()
+    app.smart_head_generate()
