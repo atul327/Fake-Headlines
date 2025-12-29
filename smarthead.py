@@ -111,6 +111,8 @@ class SmartHead():
                     case 3:
                         self.end_with_emoji()
                     case 4:
+                        print("(Length greater)\n Feature in developing process...")
+                    case _:
                         print("select valid filter (1 to 4)")
             except ValueError:
                 print("Enter choice in digit only..\n")
