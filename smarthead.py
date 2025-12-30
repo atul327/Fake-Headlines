@@ -79,13 +79,13 @@ class SmartHead():
                 try:
                     with open(f"{categorie}.json", "r") as f:
                         headlines = json.load(f)
-                        # word = headlines.split()
+                        word = headlines.split()
+                        
+                        word_index = len(word) - 1
+                        if word[word_index] == emoji:
+                            print(headlines)
+                            return
 
-                        for headline in headlines:
-                            if headline.strip().endswith(emoji):
-                                print(headlines)
-                                return
-                            
                 except FileNotFoundError:
                     print(" Sorry!!\n File Not Found!")
 
