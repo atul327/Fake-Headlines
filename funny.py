@@ -43,7 +43,7 @@ class SportHeadline(HeadlineGenerator, HeadLineBase):
         self._name_list = [
             "Atul smashes",
             "Nilesh wins",
-            "Darhak trained",
+            "Darshak trained",
             "Nagpur City",
             "Massive crowd"
         ]
