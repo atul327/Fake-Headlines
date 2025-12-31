@@ -1,4 +1,4 @@
-from funny import FunnyHeadline, SportHeadline, WeatherHeadline, RandomHeadline
+from headlines import FunnyHeadline, SportHeadline, WeatherHeadline, RandomHeadline
 
 from user_register import login_Registration
 from smarthead import SmartHead
@@ -19,8 +19,10 @@ class FakeHead:
         headline = ""
 
         while news == "yes":
+            # adding extra tempearture headline but there bug is coming 
             headline = module.generate(title)
             print(headline)
+            # print(temperature)
             news = input("\nWant more headlines (Yes/No): ").lower().strip()
 
         save = input("You want to save this headline? (Yes/No): ").lower().strip()
