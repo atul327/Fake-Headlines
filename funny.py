@@ -12,6 +12,9 @@ class HeadlineGenerator:
         name = self.__pick(self._name_list)
         work = self.__pick(self._work_list)
         obj = self.__pick(self._object_list)
+        
+        # Adding extra headline generate with temperature 
+        temperature = self.__pick(self._temp_list)
 
         return f"{title}\n {name} {work} {obj}"
 
