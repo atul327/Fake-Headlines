@@ -12,7 +12,7 @@ class HeadlineGenerator:
         name = self.__pick(self._name_list)
         work = self.__pick(self._work_list)
         obj = self.__pick(self._object_list)
-        
+
         # Adding extra headline generate with temperature 
         temperature = self.__pick(self._temp_list)
 
@@ -91,6 +91,20 @@ class WeatherHeadline(HeadlineGenerator, HeadLineBase):
             "breeze hits the city.",
             "stay hydrated, says officials."
         ]
+
+        self._temperature = {
+            (-50, -1): "Freezing cold conditions expected",
+            (0, 5): "Severe cold weather today",
+            (6, 10): "Cold weather likely",
+            (11, 15): "Cool and breezy weather",
+            (16, 20): "Mild and comfortable weather",
+            (21, 25): "Pleasant weather conditions",
+            (26, 30): "Warm weather expected",
+            (31, 35): "Hot summer conditions",
+            (36, 40): "Heatwave conditions expected",
+            (41, 45): "Severe heat alert issued",
+            (46, 60): "Extreme heat emergency warning"
+        }
 
 # just for testing try Except block
 class RandomHeadline(HeadlineGenerator, HeadLineBase):
